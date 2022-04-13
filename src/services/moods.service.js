@@ -81,5 +81,5 @@ const findMoodByCreatedatService = (createdat) => {
 module.exports = {
   findMoodsService,
   findMoodByCreatedatService,
-  findMoodByDateService,
+  //   findMoodByDateService,
 };

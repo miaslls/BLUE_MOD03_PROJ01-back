@@ -22,5 +22,5 @@ const findMoodByCreatedatController = (req, res) => {
 module.exports = {
   findMoodsController,
   findMoodByCreatedatController,
-  findMoodByDateController,
+  //   findMoodByDateController,
 };
