@@ -7,7 +7,7 @@ const moods = [
     text: 'text mood 0',
     date: '0000-00-00',
     time: 'T00:00:00',
-    timestamp: 00000000000000,
+    timestamp: '00000000000000',
     createdat: '0000-00-00T00:00:00',
   },
   {
@@ -16,7 +16,7 @@ const moods = [
     text: 'text mood 1',
     date: '0000-00-00',
     time: 'T00:00:00',
-    timestamp: 00000000000000,
+    timestamp: '00000000000000',
     createdat: '0000-00-00T00:00:00',
   },
   {
@@ -25,7 +25,7 @@ const moods = [
     text: 'text mood 2',
     date: '0000-00-00',
     time: 'T00:00:00',
-    timestamp: 00000000000000,
+    timestamp: '00000000000000',
     createdat: '0000-00-00T00:00:00',
   },
   {
@@ -34,7 +34,7 @@ const moods = [
     text: 'text mood 3',
     date: '0000-00-00',
     time: 'T00:00:00',
-    timestamp: 00000000000000,
+    timestamp: '00000000000000',
     createdat: '0000-00-00T00:00:00',
   },
   {
@@ -43,7 +43,7 @@ const moods = [
     text: 'text mood 4',
     date: '0000-00-00',
     time: 'T00:00:00',
-    timestamp: 00000000000000,
+    timestamp: '00000000000000',
     createdat: '0000-00-00T00:00:00',
   },
   {
@@ -52,7 +52,7 @@ const moods = [
     text: 'text mood 5',
     date: '0000-00-00',
     time: 'T00:00:00',
-    timestamp: 00000000000000,
+    timestamp: '00000000000000',
     createdat: '0000-00-00T00:00:00',
   },
   {
@@ -61,7 +61,7 @@ const moods = [
     text: 'text mood 6',
     date: '0000-00-00',
     time: 'T00:00:00',
-    timestamp: 00000000000000,
+    timestamp: '00000000000000',
     createdat: '0000-00-00T00:00:00',
   },
 ];
