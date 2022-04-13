@@ -70,16 +70,16 @@ const findMoodsService = () => {
   return moods;
 };
 
-const findPaletaByCreatedatService = (createdat) => {
+const findMoodByCreatedatService = (createdat) => {
   return moods.find((mood) => mood.createdat === createdat);
 };
 
-const findPaletaByDateService = (date) => {
+const findMoodByDateService = (date) => {
   return moods.find((mood) => mood.date === date);
 };
 
 module.exports = {
   findMoodsService,
-  findPaletaByCreatedatService,
-  findPaletaByDateService,
+  findMoodByCreatedatService,
+  findMoodByDateService,
 };
