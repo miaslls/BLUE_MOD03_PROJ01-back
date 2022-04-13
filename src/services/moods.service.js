@@ -74,9 +74,9 @@ const findMoodByCreatedatService = (createdat) => {
   return moods.find((mood) => mood.createdat === createdat);
 };
 
-const findMoodByDateService = (date) => {
-  return moods.find((mood) => mood.date === date);
-};
+// const findMoodByDateService = (date) => {
+//   return moods.find((mood) => mood.date === date);
+// };
 
 module.exports = {
   findMoodsService,

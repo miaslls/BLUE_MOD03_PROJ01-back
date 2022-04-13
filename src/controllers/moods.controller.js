@@ -13,11 +13,11 @@ const findMoodByCreatedatController = (req, res) => {
   res.send(chosenMood);
 };
 
-const findMoodByDateController = (req, res) => {
-  const dateParam = req.params.date;
-  const chosenMood = moodsService.findMoodByDateService(dateParam);
-  res.send(chosenMood);
-};
+// const findMoodByDateController = (req, res) => {
+//   const dateParam = req.params.date;
+//   const chosenMood = moodsService.findMoodByDateService(dateParam);
+//   res.send(chosenMood);
+// };
 
 module.exports = {
   findMoodsController,
