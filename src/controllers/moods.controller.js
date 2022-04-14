@@ -25,7 +25,14 @@ const updateMoodController = (req, res) => {
   res.send(updatedMood);
 };
 
-const deleteMoodController = (req, res) => {};
+const deleteMoodController = (req, res) => {
+  const createdatParam = req.params.createdat;
+  moodsService.deleteMoodService(createdatParam);
+  res.send({ message: 'mood destroyed' }); // 👁‍🗨
+  // const idParam = req.params.id;
+  // paletasService.deletePaletaService(idParam);
+  // res.send({ message: 'Paleta deletada com sucesso!' });
+};
 
 const getMoodByCreatedatController = (req, res) => {
   const createdatParam = req.params.createdat;

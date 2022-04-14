@@ -7,8 +7,15 @@ const getDateToday = require('../util/getDateToday');
 // mood_id -> 0 - 6 (no mood, 1 - 5, love ❤) (required)
 // icon: input by user (set by mood_id if no input) (required)
 // text: input by user (optional)
-// dateTime: input by user; format: ISO 8601 (date created if no input) (required)
-// createdat: date/time created; format: YYYYMMDDhhmmss; used as primary-key/id
+// dateTime: input by user; format: 'YYYY-MM-DDThh:mm:ss' (date created if no input) (required)
+// createdat: date/time created; format: 'YYYYMMDDhhmmss'; used as primary-key/id
+
+// 📌 auto-generated (example):
+
+// formattedDateTitle: 'april 23, 2022',
+// formattedDateBody: '23.04.2022',
+// formattedTime: '00:00:00am',
+// timestamp: 20220423000000
 
 const moods = [
   {
@@ -88,13 +95,16 @@ const addMoodService = (mood) => {
 };
 
 const updateMoodService = (createdat, moodBody) => {
-  // moodBody['createdat'] = createdat;
   const moodIndex = moods.findIndex((mood) => mood.createdat === createdat);
   moods[moodIndex] = moodBody;
   return moodBody; // 👁‍🗨
 };
 
-const deleteMoodService = () => {};
+const deleteMoodService = (createdat) => {
+  const moodIndex = moods.findIndex((mood) => mood.createdat === createdat);
+  moods.splice(moodIndex, 1); // 👁‍🗨
+  // return moods.splice(moodIndex, 1);
+};
 
 const getMoodByCreatedatService = (createdat) => {
   const mood = moods.find((mood) => mood.createdat === createdat);
