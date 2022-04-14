@@ -86,6 +86,9 @@ const getTodayMoodsService = () => {
       todayMoods.push(mood);
     }
   }
+
+  sortMoods(todayMoods);
+
   return todayMoods;
 };
 
@@ -106,11 +109,11 @@ const deleteMoodService = (createdat) => {
   // return moods.splice(moodIndex, 1);
 };
 
-const getMoodByCreatedatService = (createdat) => {
-  const mood = moods.find((mood) => mood.createdat === createdat);
-  formatMood(mood);
-  return mood;
-};
+// const getMoodByCreatedatService = (createdat) => {
+//   const mood = moods.find((mood) => mood.createdat === createdat);
+//   formatMood(mood);
+//   return mood;
+// };
 
 module.exports = {
   getAllMoodsService,
@@ -118,5 +121,5 @@ module.exports = {
   addMoodService,
   updateMoodService,
   deleteMoodService,
-  getMoodByCreatedatService,
+  // getMoodByCreatedatService,
 };
