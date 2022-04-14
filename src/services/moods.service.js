@@ -1,5 +1,8 @@
 'use strict';
 
+const { formatMood, formatMoods } = require('../util/formatMoods');
+const getDateToday = require('../util/getDateToday');
+
 // mood_id -> 0 - 6 (no mood, 1 - 5, love ❤) (required)
 // icon: input by user (set by mood_id if no input) (required)
 // text: input by user (optional)
@@ -11,7 +14,7 @@ const moods = [
     mood_id: 0,
     icon: '',
     text: 'text mood 0',
-    dateTime: '2022-04-23T00:00:00',
+    dateTime: '2022-04-14T00:00:00',
     createdat: '00000000000000',
   },
   {
@@ -58,20 +61,34 @@ const moods = [
   },
 ];
 
-const findMoodsService = () => {
+const getAllMoodsService = () => {
+  formatMoods(moods);
   return moods;
 };
 
-const findMoodByCreatedatService = (createdat) => {
-  return moods.find((mood) => mood.createdat === createdat);
+const getTodayMoodsService = () => {
+  const dateToday = getDateToday();
+  const todayMoods = [];
+
+  formatMoods(moods);
+
+  for (let mood of moods) {
+    if (mood.formattedDateBody === dateToday) {
+      todayMoods.push(mood);
+    }
+  }
+
+  return todayMoods;
 };
 
-// const findMoodByDateService = (date) => {
-//   return moods.find((mood) => mood.date === date);
-// };
+const getMoodByCreatedatService = (createdat) => {
+  const mood = moods.find((mood) => mood.createdat === createdat);
+  formatMood(mood);
+  return mood;
+};
 
 module.exports = {
-  findMoodsService,
-  findMoodByCreatedatService,
-  //   findMoodByDateService,
+  getAllMoodsService,
+  getTodayMoodsService,
+  getMoodByCreatedatService,
 };

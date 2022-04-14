@@ -1,29 +1,25 @@
 'use strict';
 
 const moodsService = require('../services/moods.service');
-const { formatMood, formatMoods } = require('../util/formatMoods');
 
-const findMoodsController = (req, res) => {
-  const allMoods = moodsService.findMoodsService();
-  formatMoods(allMoods);
+const getAllMoodsController = (req, res) => {
+  const allMoods = moodsService.getAllMoodsService();
   res.send(allMoods);
 };
 
-const findMoodByCreatedatController = (req, res) => {
+const getTodayMoodsController = (req, res) => {
+  const todayMoods = moodsService.getTodayMoodsService();
+  res.send(todayMoods);
+};
+
+const getMoodByCreatedatController = (req, res) => {
   const createdatParam = req.params.createdat;
-  const chosenMood = moodsService.findMoodByCreatedatService(createdatParam);
-  formatMood(chosenMood);
+  const chosenMood = moodsService.getMoodByCreatedatService(createdatParam);
   res.send(chosenMood);
 };
 
-// const findMoodByDateController = (req, res) => {
-//   const dateParam = req.params.date;
-//   const chosenMood = moodsService.findMoodByDateService(dateParam);
-//   res.send(chosenMood);
-// };
-
 module.exports = {
-  findMoodsController,
-  findMoodByCreatedatController,
-  //   findMoodByDateController,
+  getAllMoodsController,
+  getTodayMoodsController,
+  getMoodByCreatedatController,
 };
