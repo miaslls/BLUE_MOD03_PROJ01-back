@@ -15,8 +15,6 @@ const sortMoods = (moodList) => {
   }
 
   moodList.sort((a, b) => b.timestamp - a.timestamp);
-
-  console.log(moodList); // 🐞
 };
 
 module.exports = sortMoods;

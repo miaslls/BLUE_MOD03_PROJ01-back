@@ -1,6 +1,7 @@
 'use strict';
 
 const { formatMood, formatMoods } = require('../util/formatMoods');
+const sortMoods = require('../util/sortMoods');
 const getDateToday = require('../util/getDateToday');
 
 // mood_id -> 0 - 6 (no mood, 1 - 5, love ❤) (required)
@@ -63,6 +64,7 @@ const moods = [
 
 const getAllMoodsService = () => {
   formatMoods(moods);
+  sortMoods(moods);
   return moods;
 };
 
@@ -77,9 +79,17 @@ const getTodayMoodsService = () => {
       todayMoods.push(mood);
     }
   }
-
   return todayMoods;
 };
+
+const addMoodService = (mood) => {
+  moods.push(mood);
+  return mood; // 👁‍🗨
+};
+
+const updateMoodService = () => {};
+
+const deleteMoodService = () => {};
 
 const getMoodByCreatedatService = (createdat) => {
   const mood = moods.find((mood) => mood.createdat === createdat);
@@ -90,5 +100,8 @@ const getMoodByCreatedatService = (createdat) => {
 module.exports = {
   getAllMoodsService,
   getTodayMoodsService,
+  addMoodService,
+  updateMoodService,
+  deleteMoodService,
   getMoodByCreatedatService,
 };
