@@ -7,7 +7,7 @@ const moodsController = require('../controllers/moods.controller');
 
 router.get('/all', moodsController.getAllMoodsController);
 router.get('/today', moodsController.getTodayMoodsController);
-router.get('/:createdat', moodsController.getMoodByCreatedatController);
+// router.get('/:createdat', moodsController.getMoodByCreatedatController);
 
 router.post('/add', moodsController.addMoodController);
 router.put('/update/:createdat', moodsController.updateMoodController);

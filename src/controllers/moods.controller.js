@@ -29,16 +29,13 @@ const deleteMoodController = (req, res) => {
   const createdatParam = req.params.createdat;
   moodsService.deleteMoodService(createdatParam);
   res.send({ message: 'mood destroyed' }); // 👁‍🗨
-  // const idParam = req.params.id;
-  // paletasService.deletePaletaService(idParam);
-  // res.send({ message: 'Paleta deletada com sucesso!' });
 };
 
-const getMoodByCreatedatController = (req, res) => {
-  const createdatParam = req.params.createdat;
-  const chosenMood = moodsService.getMoodByCreatedatService(createdatParam);
-  res.send(chosenMood);
-};
+// const getMoodByCreatedatController = (req, res) => {
+//   const createdatParam = req.params.createdat;
+//   const chosenMood = moodsService.getMoodByCreatedatService(createdatParam);
+//   res.send(chosenMood);
+// };
 
 module.exports = {
   getAllMoodsController,
@@ -46,5 +43,5 @@ module.exports = {
   addMoodController,
   updateMoodController,
   deleteMoodController,
-  getMoodByCreatedatController,
+  // getMoodByCreatedatController,
 };
