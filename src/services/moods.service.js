@@ -87,7 +87,12 @@ const addMoodService = (mood) => {
   return mood; // 👁‍🗨
 };
 
-const updateMoodService = () => {};
+const updateMoodService = (createdat, moodBody) => {
+  // moodBody['createdat'] = createdat;
+  const moodIndex = moods.findIndex((mood) => mood.createdat === createdat);
+  moods[moodIndex] = moodBody;
+  return moodBody; // 👁‍🗨
+};
 
 const deleteMoodService = () => {};
 

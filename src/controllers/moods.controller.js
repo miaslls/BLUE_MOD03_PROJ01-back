@@ -18,7 +18,12 @@ const addMoodController = (req, res) => {
   res.send(newMood); // 👁‍🗨
 };
 
-const updateMoodController = (req, res) => {};
+const updateMoodController = (req, res) => {
+  const createdatParam = req.params.createdat;
+  const moodUpdate = req.body;
+  const updatedMood = moodsService.updateMoodService(createdatParam, moodUpdate);
+  res.send(updatedMood);
+};
 
 const deleteMoodController = (req, res) => {};
 
