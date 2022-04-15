@@ -23,49 +23,49 @@ const moods = [
     icon: '',
     text: 'text mood 0',
     dateTime: '2022-04-14T00:00:00',
-    createdat: '00000000000000',
+    createdat: '20001010053245',
   },
   {
     mood_id: 1,
     icon: '',
     text: 'text mood 1',
     dateTime: '2022-04-23T00:00:00',
-    createdat: '00000000000001',
+    createdat: '20001010053246',
   },
   {
     mood_id: 2,
     icon: '',
     text: 'text mood 2',
     dateTime: '2022-04-23T00:00:00',
-    createdat: '00000000000002',
+    createdat: '20001010053247',
   },
   {
     mood_id: 3,
     icon: '',
     text: 'text mood 3',
     dateTime: '2022-04-23T00:00:00',
-    createdat: '00000000000003',
+    createdat: '20001010053248',
   },
   {
     mood_id: 4,
     icon: '',
     text: 'text mood 4',
     dateTime: '2022-04-23T00:00:00',
-    createdat: '00000000000004',
+    createdat: '20001010053249',
   },
   {
     mood_id: 5,
     icon: '',
     text: 'text mood 5',
     dateTime: '2022-04-23T00:00:00',
-    createdat: '00000000000005',
+    createdat: '20001010053250',
   },
   {
     mood_id: 6,
     icon: '',
     text: 'text mood 6',
     dateTime: '2022-04-23T00:00:00',
-    createdat: '00000000000006',
+    createdat: '20001010053252',
   },
 ];
 
@@ -94,6 +94,7 @@ const getTodayMoodsService = () => {
 
 const addMoodService = (mood) => {
   moods.push(mood);
+  sortMoods(moods);
   return mood; // 👁‍🗨
 };
 
