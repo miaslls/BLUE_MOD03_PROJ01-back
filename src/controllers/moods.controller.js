@@ -18,6 +18,12 @@ const addMoodController = (req, res) => {
   res.send(newMood); // 👁‍🗨
 };
 
+const getMoodByCreatedatController = (req, res) => {
+  const createdatParam = req.params.createdat;
+  const chosenMood = moodsService.getMoodByCreatedatService(createdatParam);
+  res.send(chosenMood);
+};
+
 const updateMoodController = (req, res) => {
   const createdatParam = req.params.createdat;
   const moodUpdate = req.body;
@@ -31,17 +37,11 @@ const deleteMoodController = (req, res) => {
   res.send({ message: 'mood destroyed' }); // 👁‍🗨
 };
 
-// const getMoodByCreatedatController = (req, res) => {
-//   const createdatParam = req.params.createdat;
-//   const chosenMood = moodsService.getMoodByCreatedatService(createdatParam);
-//   res.send(chosenMood);
-// };
-
 module.exports = {
   getAllMoodsController,
   getTodayMoodsController,
   addMoodController,
+  getMoodByCreatedatController,
   updateMoodController,
   deleteMoodController,
-  // getMoodByCreatedatController,
 };

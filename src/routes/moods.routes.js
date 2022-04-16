@@ -8,8 +8,9 @@ const moodsController = require('../controllers/moods.controller');
 router.get('/all', moodsController.getAllMoodsController);
 router.get('/today', moodsController.getTodayMoodsController);
 
-// ❗❗❗ write comment for VINICIUS
-// router.get('/:createdat', moodsController.getMoodByCreatedatController);
+// ❗❗❗ VINICIUS: como conversamos em aula, essa é a rota que faz a leitura por ID (created at seria o ID (informação única, mood_id se refere ao tipo de mood.))
+
+router.get('/:createdat', moodsController.getMoodByCreatedatController);
 
 router.post('/add', moodsController.addMoodController);
 router.put('/update/:createdat', moodsController.updateMoodController);
