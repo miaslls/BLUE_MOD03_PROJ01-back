@@ -4,6 +4,8 @@ const { formatMood, formatMoods } = require('../util/formatMoods');
 const sortMoods = require('../util/sortMoods');
 const getDateToday = require('../util/getDateToday');
 
+// ℹ DATA:
+
 // mood_id -> 0 - 6 (0 = no mood; 1 - 5; 6 = love ❤) (required)
 // icon: input by user (set by mood_id if no input) (required)
 // text: input by user (optional)

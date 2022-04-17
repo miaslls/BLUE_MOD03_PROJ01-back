@@ -15,7 +15,7 @@ const getTodayMoodsController = (req, res) => {
 const addMoodController = (req, res) => {
   const moodBody = req.body;
   const newMood = moodsService.addMoodService(moodBody);
-  res.send(newMood); // 👁‍🗨
+  res.send(newMood); // 👁‍🗨 status
 };
 
 const getMoodByCreatedatController = (req, res) => {
