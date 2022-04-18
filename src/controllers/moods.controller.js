@@ -1,6 +1,7 @@
 'use strict';
 
 const moodsService = require('../services/moods.service');
+const validateInput = require('../util/validateInput');
 
 const getAllMoodsController = (req, res) => {
   const allMoods = moodsService.getAllMoodsService();
@@ -14,27 +15,59 @@ const getTodayMoodsController = (req, res) => {
 
 const addMoodController = (req, res) => {
   const moodBody = req.body;
+  const validMood = validateInput(moodBody);
+  if (!validMood) {
+    return res.status(400).send({ message: 'mood INVALID' });
+  }
+
   const newMood = moodsService.addMoodService(moodBody);
-  res.send(newMood); // 👁‍🗨 status
+  res.status(201).send({ message: 'mood CREATED' });
 };
 
 const getMoodByCreatedatController = (req, res) => {
   const createdatParam = req.params.createdat;
+  if (!createdatParam) {
+    return res.status(400).send({ message: 'mood NOT DEFINED' });
+  }
+
   const chosenMood = moodsService.getMoodByCreatedatService(createdatParam);
-  res.send(chosenMood);
+  if (!chosenMood) {
+    return res.status(404).send({ message: 'mood NOT FOUND' });
+  }
+
+  res.status(200).send(chosenMood);
 };
 
 const updateMoodController = (req, res) => {
   const createdatParam = req.params.createdat;
+  if (!createdatParam) {
+    return res.status(400).send({ message: 'mood NOT DEFINED' });
+  }
+
   const moodUpdate = req.body;
+  const validMood = validateInput(moodUpdate);
+  if (!validMood) {
+    return res.status(400).send({ message: 'mood INVALID' });
+  }
+
   const updatedMood = moodsService.updateMoodService(createdatParam, moodUpdate);
-  res.send(updatedMood);
+  if (!updatedMood) {
+    return res.status(404).send({ message: 'mood NOT FOUND' });
+  }
+  res.status(200).send({ message: 'mood UPDATED' });
 };
 
 const deleteMoodController = (req, res) => {
   const createdatParam = req.params.createdat;
-  moodsService.deleteMoodService(createdatParam);
-  res.send({ message: 'mood destroyed' }); // 👁‍🗨
+  if (!createdatParam) {
+    return res.status(400).send({ message: 'mood NOT DEFINED' });
+  }
+
+  const deletedMood = moodsService.deleteMoodService(createdatParam);
+  if (!deletedMood) {
+    return res.status(404).send({ message: 'mood NOT FOUND' });
+  }
+  res.status(200).send({ message: 'mood DESTROYED' });
 };
 
 module.exports = {

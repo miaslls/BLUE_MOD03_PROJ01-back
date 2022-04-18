@@ -97,25 +97,37 @@ const getTodayMoodsService = () => {
 const addMoodService = (mood) => {
   moods.push(mood);
   sortMoods(moods);
-  return mood; // 👁‍🗨
+  return mood;
 };
 
 const getMoodByCreatedatService = (createdat) => {
   const mood = moods.find((mood) => mood.createdat === createdat);
+  if (!mood) {
+    return null;
+  }
+
   formatMood(mood);
   return mood;
 };
 
 const updateMoodService = (createdat, moodBody) => {
   const moodIndex = moods.findIndex((mood) => mood.createdat === createdat);
+  if (moodIndex === -1) {
+    return null;
+  }
+
   moods[moodIndex] = moodBody;
-  return moodBody; // 👁‍🗨
+  return moodBody;
 };
 
 const deleteMoodService = (createdat) => {
   const moodIndex = moods.findIndex((mood) => mood.createdat === createdat);
-  moods.splice(moodIndex, 1); // 👁‍🗨
-  // return moods.splice(moodIndex, 1);
+  if (moodIndex === -1) {
+    return null;
+  }
+
+  const deletedMood = moods[moodIndex];
+  return deletedMood;
 };
 
 module.exports = {
