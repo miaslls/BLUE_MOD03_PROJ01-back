@@ -125,8 +125,8 @@ const deleteMoodService = (createdat) => {
   if (moodIndex === -1) {
     return null;
   }
-
   const deletedMood = moods[moodIndex];
+  moods.splice(moodIndex, 1);
   return deletedMood;
 };
 
